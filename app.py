@@ -28,6 +28,7 @@ def about():
     template = environment.get_template("about.html")
     return template.render()
 
+
 @app.route("/fart/<string:name>/<int:loud>")
 @app.route("/fart/<string:name>/<float:loud>")
 @app.route("/fart/<int:loud>")

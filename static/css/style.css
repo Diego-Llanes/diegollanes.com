@@ -1,9 +1,35 @@
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff') format('woff'),
+       url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/ttf/JetBrainsMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.woff') format('woff'),
+       url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+html {
+  overflow: hidden;
+  background-color: #121212;
+}
+
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "JetBrainsMono";
 }
 
 main {
+  margin: 0.5em;
+  padding: 0.5em;
+  border-radius: 0.5em;
   overflow: hidden;
   background-color: #555;
   height: 100vh;
@@ -15,15 +41,37 @@ footer {
   background-color: #333;
 }
 
+#bottomnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#bottomnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
 #topnav {
   overflow: hidden;
   background-color: #333;
 }
 
 #topnav a.name {
-  background-color: #ffc2d1;
+  border-radius: 0.5em;
+  background-color: #7D5BA6;
+  font-family: "JetBrainsMono";
+  font-weight: bold;
   color: white;
   float: left;
+}
+
+#topnav a.name:hover {
+  background-color: #a48cc1;
+  color: white;
 }
 
 #topnav a {
@@ -32,6 +80,7 @@ footer {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-family: "JetBrainsMono";
   font-size: 17px;
 }
 
