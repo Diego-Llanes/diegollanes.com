@@ -1,18 +1,32 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from jinja2 import Environment, FileSystemLoader
-import jinja2
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="/static")
 
 environment = Environment(loader=FileSystemLoader("templates/"))
 
 
+@app.route("/css/<path:path>")
+def send_css(path):
+    return send_from_directory('static/css', path)
+
+
 @app.route("/")
 def index():
-    environment = jinja2.Environment()
-    template = environment.from_string("Hello, {{ name }}!")
-    return template.render(name="World")
+    template = environment.get_template("index.html")
+    return template.render()
 
+
+@app.route("/contact")
+def contact_info():
+    template = environment.get_template("contact.html")
+    return template.render()
+
+
+@app.route("/about")
+def about():
+    template = environment.get_template("about.html")
+    return template.render()
 
 @app.route("/fart/<string:name>/<int:loud>")
 @app.route("/fart/<string:name>/<float:loud>")
