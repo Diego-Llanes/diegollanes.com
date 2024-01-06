@@ -29,6 +29,12 @@ def about():
     return template.render()
 
 
+@app.route("/research")
+def research():
+    template = environment.get_template("research.html")
+    return template.render()
+
+
 @app.route("/fart/<string:name>/<int:loud>")
 @app.route("/fart/<string:name>/<float:loud>")
 @app.route("/fart/<int:loud>")
