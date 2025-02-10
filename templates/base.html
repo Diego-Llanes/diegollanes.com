@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -5,19 +6,42 @@
 		<title>
 			🦦🎣 diego
 		</title>
+		
+		<!-- latex stuff -->
+		<script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+		<!-- render latex by finding delimiters -->
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				renderMathInElement(document.body, {
+					delimiters: [
+						{ left: "$$", right: "$$", display: true },
+						{ left: "\\(", right: "\\)", display: false }
+					],
+				});
+			});
+		</script>
+		<!-- ignore the ugly unicode stuff -->
+		<style>
+			.katex-html {
+				display: none !important;
+			}
+		</style>
 	</head>
 	<body>
 		<header id="topnav">
 		    <a class="name" href="/">diegollanes.com</a>
-		    <!-- <a href="/fart">fart</a> -->
 		    <a href="/contact">contact</a>
 		    <a href="/about">about</a>
 		    <a href="/research">research</a>
 		</header> 
+
 		<main>
 			{% block content %}
 			{% endblock %}
 		</main>
+
 		<footer id="bottomnav">
 			<a href="https://linkedin.com/in/diego-llanes-ai/">linked in</a>
 			<a href="https://github.com/Diego-Llanes">github</a>
