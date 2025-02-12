@@ -1,13 +1,75 @@
 {% extends "base.html" %}
 
-{% block content %}
-<div align="center">
-	testing....
-	</br>
-	<p>Inline math: \(a^2 + b^2 = c^2\)</p>
-	<p>Display math:</p>
-	$$
-	\int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\pi}
-	$$
-</div>
+{% block title %}
+	greetings!
 {% endblock %}
+
+{% block page_style %}
+  <style>
+  html {
+    overflow: auto;
+    background-color: #121212;
+  }
+  .hero-image {
+    background-image: url("../static/figs/diego_in_glacier.jpg");
+
+    background-color: #cccccc;
+    height: 90%;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    /*linear gradient on cover*/
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+  .hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    /*text-shadow : horizontal-shadow vertical-shadow blur color;*/
+    text-shadow:1px 1px 5px #000, 1px 1px 5px #ccc;
+  }
+
+  /* Make absolute so it sits on the hero picture */
+  #topnav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:50px">👋 hi my name is diego llanes</h1>
+      <h2 style="font-size:30px">👨‍💻🐍 i am a data scientist 📊⚗️</h3>
+      <!--<h2 style="font-size:30px">i am a data scientist 📊⚗️</h3>-->
+    </div>
+  </div>
+
+  <main>
+  <div>
+    <h1>welcome to my personal website!</h1>
+    <p>this website is intended to document some of my projects / résumé / cv / hobbies / who i am as a person</p>
+    <p>feel free to hop around and explore, if something seems to be broken, please don't hesitate to contact me at contact {at} diegollanes [dot] com! please enjoy your stay!</p>
+    <a href="/index" style="font-weight: bold;">index</a> -- you are here!
+    <br>
+    <a href="/about" style="font-weight: bold;">about</a> -- learn about me as a person!
+    <br>
+    <a href="/research" style="font-weight: bold;">research</a> -- learn about my research projects!
+    <br>
+    <a href="/contact" style="font-weight: bold;">contact</a> -- get in touch with me!
+    <br>
+  </div>
+  </main>
+{% endblock %}
+

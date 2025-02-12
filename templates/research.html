@@ -1,20 +1,47 @@
 {% extends "base.html" %}
 
+{% block title %}
+research!
+{% endblock %}
+
 {% block content %}
 
+<main>
 <div align="center">
 	<h1>Research Projects</h1>
 	These are some of my notable research projects. (in order of completion)
 </div>
 
+<h3>BOSS Net: A Self-Consistent Data-Driven Model For Determining Stellar Parameters From Optical And Near-Ir Spectra</h3>
+<!--Another student and I trained a Deep Learning Model to predict the stellar-->
+<!--parameters of stars. This pipeline is now being used for the inference of-->
+<!--new stars by other researchers in the field for stars observed by the-->
+<!--BOSS telescope.-->
+
+<!--We developed BOSS Net to estimate the surface gravity, surface temperature, and metallicity of stars observed by the BOSS telescope.-->
+<!--Tradititonally, estimating these parameters is both a computationally expensive process that involves templateing-->
+<!---->
+<!---->
+<!--My first introduction to research was a collaboration with Dr. Brian Hutchinson and Dr. Marina Kounkel.-->
+<!--These two professors, whose fields focus on machine learning and astronomy, respectively, were my research advisors for-->
+<!--BOSS-Net; a system that leverages hyperspectral pixel readings of stellar objects, and estimates their surface temperature, gravity, and metallicity through use of a physics-informed ResNet architecture inspired by computer-vision.-->
+<!--There is a large collection of labeled stellar objects, but a much larger collection of stellar objects whose parameters are unknown, and costly to estimate.-->
+<!--Our work was in developing a pipeline for the estimation of such parameters for these unlabeled stars, given the distribution of the existing labeled stars.-->
+<!--This work contributed to a much larger collaboration, which I presented at the Flatiron Institute during the 2023 SDSS-V Collaboration Meeting, ultimately leading to publication in the Astronomical Journal @Sizemore2024.-->
+<!---->
+<!---->
+</br>
+</br>
+<strong>STATUS:</strong> Accepted to the <a href="https://iopscience.iop.org/article/10.3847/1538-3881/ad291d">Astronomical Journal<a>.
+
 
 <ul>
 	<li>
 		<h3>ml_astro_boss</h3>
-		Another student and I trained a Deep Learning Model to predict the stellar
-		parameters of stars. This pipeline is now being used for the inference of
-		new stars by other researchers in the field for stars observed by the
-		BOSS telescope.
+		<!--Another student and I trained a Deep Learning Model to predict the stellar-->
+		<!--parameters of stars. This pipeline is now being used for the inference of-->
+		<!--new stars by other researchers in the field for stars observed by the-->
+		<!--BOSS telescope.-->
 		</br>
 		</br>
 		<strong>STATUS:</strong> Accepted to the <a href=https://iopscience.iop.org/article/10.3847/1538-3881/ad291d>Astronomical Journal<a>.
@@ -42,4 +69,5 @@
 	</li>
 </ul>
 
+</main>
 {% endblock %}

@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'JetBrainsMono';
   src: url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2') format('woff2'),
-       url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff') format('woff'),
-       url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/ttf/JetBrainsMono-Regular.ttf') format('truetype');
+    url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/ttf/JetBrainsMono-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
@@ -10,34 +10,78 @@
 @font-face {
   font-family: 'JetBrainsMono';
   src: url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.woff2') format('woff2'),
-       url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.woff') format('woff'),
-       url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.ttf') format('truetype');
+    url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
 
+table {
+  border-collapse: collapse;
+  /* merge borders */
+  margin: 1em 0;
+}
+
+th,
+td {
+  padding: 0.75em;
+  border: 2px solid #888;
+  text-align: center;
+}
+
+/*th {*/
+/*  background-color: #333;*/
+/*  color: #fff;*/
+/*}*/
+
+tr:nth-child(odd) {
+  background-color: rgba(70, 70, 70, 0.70);
+}
+
+tr:nth-child(even) {
+  background-color: rgba(40, 40, 40, 0.70);
+}
+
 html {
   overflow: auto;
-  background-color: #121212;
+  /*background image stuff*/
+  background: url("/static/figs/sky_pond.jpg") no-repeat center center fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 body {
   margin: 0;
-  /* font-family: "JetBrainsMono"; */
+  min-height: 100%;
   font-family: "Arial";
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
+  min-height: 100vh;
+  padding-bottom: 20px;
+}
+
+a:link {
+  color: #406ce5;
+}
+
+a:visited {
+  color: #406ce5;
+}
+
+a:hover {
+  color: #1944ba;
 }
 
 img {
-  max-width: 60%;
+  /*max-width: 60%;*/
   border-radius: 0.5em;
   height: auto;
-  width: auto\9; /* ie8 */
 }
 
 figure {
@@ -51,18 +95,15 @@ figcaption {
   margin: auto;
 }
 
-table, th {
-  border: 1px solid;
-}
-
 main {
-  min-height: 100%;
-  margin: 0.5em;
-  padding: 0.5em 1.5em;
+  margin: 2em;
+  padding: 1.5em 1.5em;
   border-radius: 0.5em;
   overflow: hidden;
-  background-color: #555;
+  background-color: rgba(85, 85, 85, 0.85);
   color: #fff;
+
+  font-size: 18px;
 }
 
 footer {
@@ -75,8 +116,9 @@ footer {
 
 #bottomnav {
   overflow: hidden;
-  background-color: #333;
   border-radius: 0.5em;
+  background-color: rgba(51, 51, 51, 0.7);
+  padding: 0.5em;
 }
 
 #bottomnav a {
@@ -85,15 +127,77 @@ footer {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 18px;
   font-family: "JetBrainsMono"
+}
+
+#bottomnav a:hover {
+  background-color: #ddd;
+  color: black;
+  border-radius: 0.5em;
 }
 
 #topnav {
   margin: 0.5em;
-  overflow: hidden;
-  background-color: #333;
-  border-radius: 0.5em;
+  width: calc(100% - 2em);
+  overflow: visible;
+  padding: 0.5em;
+  margin: 0.5em;
+  background-color: rgba(51, 51, 51, 0.70);
+  border-radius: 0.75em;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+#topnav.dark {
+  border-radius: 0.75em 0.75em 0em 0.5em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1em;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+
+  position: absolute;
+  right: 1em;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(51, 51, 51, 0.70);
+    width: 200px;
+    padding: 1em;
+    z-index: 1000;
+
+  }
+
+  .nav-links.show {
+    display: flex;
+    background-color: rgba(51, 51, 51, 1);
+    border-radius: 0em 0em 0.5em 0.5em;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+  }
 }
 
 #topnav a.name {
@@ -106,8 +210,8 @@ footer {
 }
 
 #topnav a.name:hover {
-  background-color: #a48cc1;
-  color: white;
+  background-color: #ddd;
+  color: black;
 }
 
 #topnav a {
@@ -117,10 +221,11 @@ footer {
   padding: 14px 16px;
   text-decoration: none;
   font-family: "JetBrainsMono";
-  font-size: 17px;
+  font-size: 18px;
 }
 
 #topnav a:hover {
   background-color: #ddd;
   color: black;
+  border-radius: 0.5em;
 }

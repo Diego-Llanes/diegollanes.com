@@ -1,32 +1,56 @@
-{% extends "base.html" %}
+{% extends "default.html" %}
 
-{% block content %}
+{% block title %}
+	about me!
+{% endblock %}
 
-<div align="center">
+
+{% block page_style %}
+<style>
+.image-left {
+		float: left;
+		margin-right: 15px;
+}
+.image-right {
+		float: right;
+		margin-left: 15px;
+}
+</style>
+{% endblock %}
+
+{% block inner_content %}
+
+<div style="text-wrap: wrap;">
 
 	<h2>about me</h2>
+	<div class="image-right">
+		<figure >
+			<img src="/figs/liftpic.JPG" width="500em" >
+				<figcaption>Skiing in Whistler BC <br> Decmber 2024</figcaption>
+		</figure> 
+	</div>
 
-	<p>
-		My name is Diego Llanes and I am a Deep Learning/Machine Learning Researcher interested in the study of control and dynamical systems.
-		I currently work at Pacific Northwest National Laboratory as a Scientific Machine Learning Masters Intern.
-		I am applying to PhD programs this year so wish me luck or let me in!
-	</p>
-	<figure>
-		<img src="/figs/liftpic.JPG" width="500em">
-		<figcaption>Skiing with friends at Whistler BC \(\in \{michelle, andrew\}\) (me in the middle)</figcaption>
-	</figure> 
-</div>
-<h2>Interests</h2>
-<ul>
-	<li>Rock Climbing</li>
-	<li>Mountain Biking</li>
-	<li>Snowboarding</li>
-	<li>Cars</li>
-	<li>Hiking</li>
-	<li>Deep Learning</li>
-	<li>Mathematics</li>
-	<li>Control Theory</li>
-	<li>Programming</li>
-</ul>
-
+	My name is Diego Llanes and I am a (machine learning researcher / data scientist) interested in the study of control, natural language processing, and dynamical systems.
+	I currently work at Pacific Northwest National Laboratory as a Scientific Machine Learning Masters Intern.
+	<hr>
+	I have just applied to PhD programs this year so if your reading this, wish me luck, and if you are the grad programs I applied to, let me in!
+	<br>
+ <table>
+  <tr>
+    <th>Research Interests</th>
+    <th>Personal Interests</th>
+  </tr>
+  <tr>
+    <td>Control (RL + DRL)</td>
+    <td>Rock Climbing</td>
+  </tr>
+  <tr>
+    <td>Natural Language Processing</td>
+    <td>Mountain Biking</td>
+  </tr>
+  <tr>
+    <td>Dynamical Systems</td>
+    <td>Hiking / Backpacking</td>
+  </tr>
+</table> 
 {% endblock %}
