@@ -29,6 +29,7 @@
 	<a href="https://linkedin.com/in/diego-llanes-ai/">linked in</a>
 	<a href="https://github.com/Diego-Llanes">github</a>
 	<a href="https://wandb.ai/diegollanes">wandb</a>
+	<a href="https://scholar.google.com/citations?user=8MSKnjwAAAAJ&hl=en&oi=ao">google scholar</a>
 </footer>
 
 <!-- hamburger stuff -->
@@ -58,9 +59,15 @@ document.addEventListener('DOMContentLoaded', function() {
 		renderMathInElement(document.body, {
 			delimiters: [
 				{left: "$$", right: "$$", display: true},
+				{left: "$", right: "$", display: false},
 				{left: "\\(", right: "\\)", display: false}
 			],
 		});
 	});
 </script>
+<style>
+	.katex-html {
+		display: none !important;
+	}
+</style>
 </html>

@@ -1,5 +1,6 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, render_template
 from jinja2 import Environment, FileSystemLoader
+import json
 
 app = Flask(__name__, static_url_path="/static")
 
@@ -8,12 +9,12 @@ environment = Environment(loader=FileSystemLoader("templates/"))
 
 @app.route("/css/<path:path>")
 def send_css(path):
-    return send_from_directory('static/css', path)
+    return send_from_directory("static/css", path)
 
 
 @app.route("/figs/<path:path>")
 def send_figs(path):
-    return send_from_directory('static/figs', path)
+    return send_from_directory("static/figs", path)
 
 
 @app.route("/")
@@ -36,8 +37,16 @@ def about():
 
 @app.route("/research")
 def research():
-    template = environment.get_template("research.html")
-    return template.render()
+    with open("static/json/research.json", "r") as f:
+        projects = json.load(f)
+
+    # find diego llanes and wrap with underline tag
+    for project in projects:
+        project["authors"] = project["authors"].replace(
+            "Diego Llanes",
+            "<u>Diego Llanes</u>",
+        )
+    return render_template("research.html", projects=projects)
 
 
 @app.route("/fart/<string:name>/<int:loud>")

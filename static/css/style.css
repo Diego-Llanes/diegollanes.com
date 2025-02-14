@@ -29,11 +29,6 @@ td {
   text-align: center;
 }
 
-/*th {*/
-/*  background-color: #333;*/
-/*  color: #fff;*/
-/*}*/
-
 tr:nth-child(odd) {
   background-color: rgba(70, 70, 70, 0.70);
 }
@@ -67,19 +62,19 @@ body {
 }
 
 a:link {
-  color: #406ce5;
+  color: #0d6efd;
+  text-decoration: none;
 }
 
 a:visited {
-  color: #406ce5;
+  color: #0d6efd;
 }
 
 a:hover {
-  color: #1944ba;
+  text-decoration: underline;
 }
 
 img {
-  /*max-width: 60%;*/
   border-radius: 0.5em;
   height: auto;
 }

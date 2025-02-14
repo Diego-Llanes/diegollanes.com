@@ -4,37 +4,84 @@
 	contact me!
 {% endblock %}
 
+{% block page_style %}
+  <style>
+    .contact-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start; /* changed from center to flex-start */
+      gap: 2em;
+      margin: 1em 0;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-info p {
+      margin-bottom: 1em;
+    }
+    .contact-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .contact-table th,
+    .contact-table td {
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    figure.contact-figure {
+      flex-shrink: 0;
+      max-width: 40%;
+      text-align: center;
+    }
+    figure.contact-figure img {
+      width: 70%;
+      border-radius: 0.5em;
+    }
+    figure.contact-figure figcaption {
+      margin-top: 0.5em;
+      font-size: 0.9em;
+      color: #ddd;
+    }
+  </style>
+{% endblock %}
 
 {% block content %}
-
 <main>
-<div align="center">
-	<h1>Contact Information</h1>
-	Please contact me at one of these places if you have any interest or issues with me
-	<br>
-	<table>
-		<tr>
-			<th>email</th>
-			<th><a href="mailto:contact@diegollanes.com">contact@diegollanes.com</a></th>
-		</tr>
-		<tr>
-			<th>linked in</th>
-			<th><a href="https://linkedin.com/in/diego-llanes-ai/">linkedin.com/in/diego-llanes-ai</a></th>
-		</tr>
-		<tr>
-			<th>github</th>
-			<th><a href="https://github.com/Diego-Llanes">github.com/Diego-Llanes</a></th>
-		</tr>
-		<tr>
-			<th>wandb</th>
-			<th><a href="https://wandb.ai/diegollanes">wandb.ai/diegollanes</a></th>
-		</tr>
-		<tr>
-			<th>publicmatt</th>
-			<th><a href="https://chat.publicmatt.com/u/user2/summary">user2</a></th>
-		</tr>
-	</table>
-</div>
+  <h1>contact information</h1>
+        Please contact me at any of the following, but I typically respond most actively to my email.
+  <div class="contact-container">
+    <div class="contact-info">
+      <p>
+      </p>
+      <table class="contact-table">
+        <tr>
+          <th>email</th>
+          <td>contact @ this url</td>
+        </tr>
+        <tr>
+          <th>linkedIn</th>
+          <td><a href="https://linkedin.com/in/diego-llanes-ai/">linkedin.com/in/diego-llanes-ai</a></td>
+        </tr>
+        <tr>
+          <th>github</th>
+          <td><a href="https://github.com/Diego-Llanes">github.com/Diego-Llanes</a></td>
+        </tr>
+        <tr>
+          <th>wandb</th>
+          <td><a href="https://wandb.ai/diegollanes">wandb.ai/diegollanes</a></td>
+        </tr>
+        <tr>
+          <th>gitmatt</th>
+          <td><a href="https://git.publicmatt.com/publicdiego">publicdiego</a></td>
+        </tr>
+      </table>
+    </div>
+    <figure class="contact-figure">
+      <img src="/figs/north_twin.png" alt="North Twin, WA">
+      <figcaption>My friends and I on North Twin, WA<br>December 2024</figcaption>
+    </figure>
+  </div>
 </main>
-
 {% endblock %}

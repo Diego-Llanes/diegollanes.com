@@ -1,73 +1,140 @@
 {% extends "base.html" %}
 
 {% block title %}
-research!
+	research!
+{% endblock %}
+
+{% block page_style %}
+  <style>
+    .research-project {
+      border: 1px solid #444;
+      border-radius: 0.5em;
+      padding: 1em;
+      background: rgba(34,34,34,0.70);
+      color: #fff;
+      margin: 1em 0;
+    }
+    .research-project h3 {
+      margin-top: 0;
+    }
+    .research-flex {
+      display: flex;
+      justify-content: left;
+      align-items: flex-start;
+      gap: 1.5em;
+    }
+    .project-info {
+      flex: 1;
+    }
+    .project-figure {
+      max-height: 30em;
+    }
+    .project-figure img {
+      max-height: 7em;
+      max-width: 7em;
+      border-radius: 0.5em;
+      background-color: rgba(255,255,255,0.7);
+    }
+    .project-meta p {
+      margin: 5px 0;
+    }
+    .project-links-row {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      margin-top: 1em;
+      border-top: 1px solid #555;
+      padding-top: 10px;
+    }
+    .project-links a {
+      margin-right: 1em;
+      text-decoration: none;
+    }
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+    .accordion-header {
+      background: rgba(41,41,41,1);
+      color: #fff;
+      padding: 0.5em 0.75em;
+      cursor: pointer;
+      user-select: none;
+      order: -1;
+      margin-right: 1em;
+      border-radius: 0.5em;
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease, margin-top 0.3s ease;
+      background: rgba(68,68,68,0.70);
+      padding: 0 0.75em;
+      border-radius: 0.5em;
+      margin-top: 0;
+    }
+    .accordion-content.open {
+      overflow: hidden;
+      max-height: 30em;
+      margin-top: 1em;
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
-
 <main>
-<div align="center">
-	<h1>Research Projects</h1>
-	These are some of my notable research projects. (in order of completion)
-</div>
+  <div align="center">
+    <h1>Research Projects</h1>
+  </div>
 
-<h3>BOSS Net: A Self-Consistent Data-Driven Model For Determining Stellar Parameters From Optical And Near-Ir Spectra</h3>
-<!--Another student and I trained a Deep Learning Model to predict the stellar-->
-<!--parameters of stars. This pipeline is now being used for the inference of-->
-<!--new stars by other researchers in the field for stars observed by the-->
-<!--BOSS telescope.-->
+  {% for project in projects %}
+  <div class="research-project">
+    <div class="research-flex">
+      <div class="project-figure">
+        <img src="{{ project.figure }}" alt="Project Figure">
+      </div>
+      <div>
+        <div class="project-info">
+          <h3>{{ project.title }}</h3>
+        </div>
+        <div class="project-meta">
+          <p><strong>Authors:</strong> {{ project.authors | safe }}</p>
+          <p>
+            <strong>Conference/Journal:</strong>
+            <a href="{{ project.conference_url }}">{{ project.conference | safe }}</a>
+          </p>
 
-<!--We developed BOSS Net to estimate the surface gravity, surface temperature, and metallicity of stars observed by the BOSS telescope.-->
-<!--Tradititonally, estimating these parameters is both a computationally expensive process that involves templateing-->
-<!---->
-<!---->
-<!--My first introduction to research was a collaboration with Dr. Brian Hutchinson and Dr. Marina Kounkel.-->
-<!--These two professors, whose fields focus on machine learning and astronomy, respectively, were my research advisors for-->
-<!--BOSS-Net; a system that leverages hyperspectral pixel readings of stellar objects, and estimates their surface temperature, gravity, and metallicity through use of a physics-informed ResNet architecture inspired by computer-vision.-->
-<!--There is a large collection of labeled stellar objects, but a much larger collection of stellar objects whose parameters are unknown, and costly to estimate.-->
-<!--Our work was in developing a pipeline for the estimation of such parameters for these unlabeled stars, given the distribution of the existing labeled stars.-->
-<!--This work contributed to a much larger collaboration, which I presented at the Flatiron Institute during the 2023 SDSS-V Collaboration Meeting, ultimately leading to publication in the Astronomical Journal @Sizemore2024.-->
-<!---->
-<!---->
-</br>
-</br>
-<strong>STATUS:</strong> Accepted to the <a href="https://iopscience.iop.org/article/10.3847/1538-3881/ad291d">Astronomical Journal<a>.
+          {% if project.presentation %}
+          <p>
+            <strong>Presentation:</strong> {{ project.presentation }}
+          </p>
+          {% endif %}
 
+        </div>
+      </div>
+    </div>
+    <div class="project-links-row">
+      <div class="project-links">
+        {% for link in project.links %}
+          <a href="{{ link.url }}">{{ link.name }}</a>
+        {% endfor %}
+      </div>
+      <div class="accordion-header">Abstract</div>
+    </div>
+    <div class="accordion-content">
+      <p>{{ project.abstract | safe }}</p>
+    </div>
+  </div>
+  {% endfor %}
 
-<ul>
-	<li>
-		<h3>ml_astro_boss</h3>
-		<!--Another student and I trained a Deep Learning Model to predict the stellar-->
-		<!--parameters of stars. This pipeline is now being used for the inference of-->
-		<!--new stars by other researchers in the field for stars observed by the-->
-		<!--BOSS telescope.-->
-		</br>
-		</br>
-		<strong>STATUS:</strong> Accepted to the <a href=https://iopscience.iop.org/article/10.3847/1538-3881/ad291d>Astronomical Journal<a>.
-
-	</li>
-	<li>
-		<h3>tronn</h3>
-		Two other students and I were tasked with benchmarking a novel Deep Learning
-		Algorithm (DPC) against a littanny of other more traditional styles of Deep 
-		Reinforcement Learning. We tested these algorithms in 6 different environments
-		with different levels of true system interaction to test the data efficiency of
-		each algorithm
-		</br>
-		</br>
-		<strong>STATUS:</strong> Manuscript in progress.
-	</li>
-	<li>
-		<h3>ml_astro_hydra</h3>
-		Three other students and I are working on developing a pipeline for estimating
-		the stellar parameters observed by any telescope, agnostic to any artifacts that
-		telescope may have.
-		</br>
-		</br>
-		<strong>STATUS:</strong> In progress.
-	</li>
-</ul>
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', function() {
+          this.parentNode.nextElementSibling.classList.toggle('open');
+        });
+      });
+    });
+  </script>
 </main>
+
 {% endblock %}
