@@ -21,20 +21,19 @@
     "conference_url": "https://www.ieee-whispers.com/past-editions/",
     "presentation": "2024, Helsinki Finland",
     "links": [
-      {"name": "IEEE Whispers", "url": "https://www.ieee-whispers.com/past-editions/"},
+      {"name": "IEEE Xplore", "url": "https://ieeexplore.ieee.org/document/10876423"},
       {"name": "arXiv", "url": "https://arxiv.org/pdf/2411.05714"}
     ],
-    "abstract": "We present a sensor-agnostic spectral transformer as the basis for spectral foundation models. To that end, we introduce a Universal Spectral Representation (USR) that leverages sensor meta-data, such as sensing kernel specifications and sensing wavelengths, to encode spectra obtained from any spectral instrument into a common representation, such that a single model can ingest data from any sensor. Furthermore, we develop a methodology for pre-training such models in a self-supervised manner using a novel random sensor-augmentation and reconstruction pipeline to learn spectral features independent of the sensing paradigm. We demonstrate that our architecture can learn sensor independent spectral features that generalize effectively to sensors not seen during training. This work sets the stage for training foundation models that can both leverage and be effective for the growing diversity of spectral data",
+    "abstract": "We present a sensor-agnostic spectral transformer as the basis for spectral foundation models. To that end, we introduce a Universal Spectral Representation (USR) that leverages sensor meta-data, such as sensing kernel specifications and sensing wavelengths, to encode spectra obtained from any spectral instrument into a common representation, such that a single model can ingest data from any sensor. Furthermore, we develop a methodology for pre-training such models in a self-supervised manner using a novel random sensor-augmentation and reconstruction pipeline to learn spectral features independent of the sensing paradigm. We demonstrate that our architecture can learn sensor independent spectral features that generalize effectively to sensors not seen during training. This work sets the stage for training foundation models that can both leverage and be effective for the growing diversity of spectral data.",
     "figure": "/static/figs/globe.jpg"
   },
   {
     "title": "TRONN BEM: Tractable, Reliable, and Operational Neural Networks for Buildings Energy Management.",
     "authors": "Diego Llanes, Seth Briney, Harry Qiang, Majd Safi, Aaron Tuor, Brian Hutchinson, Ján Drgoňa, Draguna Vrabie",
-    "conference": "<u>Applying to</u> Conferenceon Decision & Control 2025",
+    "conference": "<em>Applying to</em> Conference on Decision & Control 2025",
     "conference_url": "https://cdc2025.ieeecss.org/",
     "links": [
-      {"name": "IEEE Whispers", "url": "https://www.ieee-whispers.com/past-editions/"},
-      {"name": "arXiv", "url": "https://arxiv.org/pdf/2411.05714"}
+      {"name": "GitHub", "url": "https://github.com/pnnl/neuromancer"}
     ],
     "abstract": "Control problems naturally arise across a wide range of domains, from robotics to building energy management. In the latter case, model-free learning-based control algorithms have shown significant promise, particularly differentiable predictive control (DPC) and deep reinforcement learning (DRL). However, the relative advantages and disadvantages of DPC and DRL for building control are not yet fully explored in terms of control performance, sample efficiency, computational cost and ease of use. This work contributes a benchmarking study of DPC and DRL across two control scenarios across six systems. We consider both the whitebox control scenario, where the true equations governing the system are known, and the blackbox scenario, where a neural state space model (NSSM) is trained from offline interaction with the true system and used as a surrogate for the true system to train the controller. The former allows us to isolate the controller training process under idealized conditions, while the latter investigates the more realistic scenario where only historical observations are available, and the true governing equations are not known. We benchmark the control performance of these algorithms across six systems: two classic control systems, two classic reinforcement learning systems, and two building envelope models. In general, we find DPC to be competitive with the best of the seven DRL algorithms for the task, with a slight advantage on the classic control and building systems, but worse performance than DRL on the classic reinforcement learning systems. By benchmarking DRL and DPC across system types and control scenarios, we hope to accelerate the deployment of these methods in real-world settings.",
     "figure": "/static/figs/acrobot_bb_control.gif"
