@@ -35,6 +35,12 @@ def about():
     return template.render()
 
 
+@app.route("/calendar")
+def calendar():
+    template = environment.get_template("calendar.html")
+    return template.render()
+
+
 @app.route("/research")
 def research():
     with open("static/json/research.json", "r") as f:
